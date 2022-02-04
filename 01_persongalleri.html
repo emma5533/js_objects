@@ -7,6 +7,10 @@
     <title>Document</title>
 
     <style>
+      img {
+        max-width: 100%;
+      }
+
       section {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -24,7 +28,7 @@
       <template>
         <article>
           <h2></h2>
-          <h4></h4>
+          <img src="" alt="" />
           <p></p>
         </article>
       </template>
@@ -52,9 +56,8 @@
           klon.querySelector(
             "h2"
           ).textContent = `${person.fornavn} ${person.efternavn}`;
-          klon.querySelector(
-            "h4"
-          ).textContent = `Her kommer et foto: ${person.foto}`;
+          klon.querySelector("img").src = "/faces/" + person.foto;
+
           klon.querySelector("p").textContent = person.email;
 
           container.appendChild(klon);
