@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <article id="objekt"></article>
+
+    <script>
+      //Et array af objekter
+      const objekt = [
+        {
+          navn: "Gris",
+          type: "Pattedyr",
+          billede: "http://mabe-kea.dk/E19/pics/pig.png",
+          levested: "Svinefarme",
+        },
+        {
+          navn: "frø",
+          type: "klistret",
+          billede: "http://mabe-kea.dk/E19/pics/frog.png",
+          levested: "moser",
+        },
+        {
+          navn: "ræv",
+          type: "pattedyr",
+          billede: "http://mabe-kea.dk/E19/pics/fox.png",
+          levested: "skoven",
+        },
+        {
+          navn: "sild",
+          type: "fisk",
+          billede: "http://mabe-kea.dk/E19/pics/sild.jpg",
+          levested: "havet",
+        },
+        {
+          navn: "krokodille",
+          type: "krybdyr",
+          billede: "http://mabe-kea.dk/E19/pics/kroko.jpg",
+          levested: "nilen",
+        },
+      ];
+      //tester lige, kan den vise mit array?
+      console.log(objekt);
+      console.log(objekt[3].navn);
+
+      //Grunden til at jeg nu refererer til dyr.navn og ikke objekt.navn
+      //er fordi jeg i linje 54 siger forEach dyr. Så for hvert dyr
+      //vil jeg tage dens .navn, dens .type osv.
+      const liste = document.querySelector("#objekt");
+      objekt.forEach((dyr) => {
+        liste.innerHTML += `<p>${dyr.navn}, ${dyr.type} fra ${dyr.levested} </p>`;
+      });
+
+      //const visDyr = `//Dyr:${objekt.navn},  type:${objekt.type},  levested: ${objekt.levested}`;
+
+      //destination.querySelector("p").textContent = visDyr;
+      //destination.querySelector("img").src = objekt.billede;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <article id="objekt">
+      <h3></h3>
+      <img src="" alt="" />
+      <p></p>
+      <p></p>
+    </article>
+
+    <script>
+      //Fastsæt konstanter, sådan at der er et objekt,
+      //en destination til hvor det skal placeres
+      //og en concatinering, hvor objekternes value sættes ssammen i en string
+      const objekt = {
+        dyr: "Gris",
+        type: "Pattedyr",
+        billede: "http://mabe-kea.dk/E19/pics/pig.png",
+        levested: "Svinefarme",
+      };
+      console.log(objekt);
+      const destination = document.querySelector("#objekt");
+
+      //indsæt constant på p - i html.
+      //det samme med billede.
+      destination.querySelector("h3").textContent = objekt.dyr;
+      destination.querySelector("img").src = objekt.billede;
+      destination.querySelector("p").textContent = `Type:${objekt.type}`;
+      destination.querySelector(
+        "p:nth-of-type(2)"
+      ).textContent = `Levested:${objekt.levested}`;
+    </script>
+  </body>
+</html>

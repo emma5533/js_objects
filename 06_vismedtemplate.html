@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="dyre-container"></section>
+    <template>
+      <article id="objekt">
+        <h3></h3>
+        <img src="" alt="" />
+        <p class="type"></p>
+        <p class="levested"></p>
+      </article>
+    </template>
+
+    <script>
+      //Et array af objekter
+      const objekt = [
+        {
+          navn: "Gris",
+          type: "Pattedyr",
+          billede: "http://mabe-kea.dk/E19/pics/pig.png",
+          levested: "Svinefarme",
+        },
+        {
+          navn: "frø",
+          type: "klistret",
+          billede: "http://mabe-kea.dk/E19/pics/frog.png",
+          levested: "moser",
+        },
+        {
+          navn: "ræv",
+          type: "pattedyr",
+          billede: "http://mabe-kea.dk/E19/pics/fox.png",
+          levested: "skoven",
+        },
+        {
+          navn: "sild",
+          type: "fisk",
+          billede: "http://mabe-kea.dk/E19/pics/sild.jpg",
+          levested: "havet",
+        },
+        {
+          navn: "krokodille",
+          type: "krybdyr",
+          billede: "http://mabe-kea.dk/E19/pics/kroko.jpg",
+          levested: "nilen",
+        },
+      ];
+      //tester lige, kan den vise mit array?
+      console.log(objekt);
+      console.log(objekt[3].navn);
+
+      //Laver konstanter for at have noget at komme mine elementer ind i senere
+      const container = document.querySelector(".dyre-container");
+      const dyreTemplate = document.querySelector("template");
+
+      //For hvert element i mit array, vil jeg lave en klon.
+      //derfor, variablen
+      objekt.forEach((element) => {
+        let klon = dyreTemplate.cloneNode(true).content;
+        klon.querySelector("h3").textContent = `Dyr:${element.navn}`;
+        klon.querySelector("img").src = element.billede;
+        klon.querySelector(".type").textContent = `Type:  ${element.type}`;
+        klon.querySelector(
+          ".levested"
+        ).textContent = `Lever i: ${element.levested}`;
+        //placér den tilbage i DOM'en, ved at give container et child: klon(erne)
+        container.appendChild(klon);
+      });
+    </script>
+  </body>
+</html>
